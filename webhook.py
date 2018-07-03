@@ -28,11 +28,13 @@ def makeResponse(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
+    country = parameters.get("geo-country")
     date = parameters.get("date")
     if city is None:
         return None
     # https://samples.openweathermap.org/data/2.5/forecast?q=London,us&appid=b6907d289e10d714a6e88b30761fae22
-    r=requests.get('http://samples.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
+    #api.openweathermap.org/data/2.5/forecast?q={city name},{country code}
+    r=requests.get('api.openweathermap.org/data/2.5/forecast?q='+city+','+country+&appid=b6907d289e10d714a6e88b30761fae22')
     json_object = r.json()
     weather=json_object['list']
     for i in range(0,30):
