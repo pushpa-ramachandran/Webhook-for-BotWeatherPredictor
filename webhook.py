@@ -28,7 +28,7 @@ def makeResponse(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
-    country = parameters.get("geo-country")
+    country = parameters.get("country")
     date = parameters.get("date")
     if city is None:
         return None
